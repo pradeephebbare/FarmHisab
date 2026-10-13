@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink antialiased; font-size: 17px; line-height: 1.55; overflow-wrap: anywhere; }
+  :focus-visible { outline: 3px solid #1F5C99; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+}
+
+@layer components {
+  .btn { @apply inline-flex min-h-touch min-w-touch items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply bg-turmeric-400 text-ink hover:bg-turmeric-500; }
+  .btn-green { @apply bg-field-700 text-white hover:bg-field-800; }
+  .btn-quiet { @apply border-2 border-field-200 bg-white text-field-800 hover:bg-field-50; }
+  .btn-danger { @apply border-2 border-chili-700 bg-white text-chili-700 hover:bg-chili-50; }
+  .input { @apply min-h-touch w-full rounded-xl border-2 border-field-200 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-field-700; }
+  .label { @apply mb-1 block font-semibold; }
+  .hint { @apply mt-1 text-sm text-ink-soft; }
+  .field-error { @apply mt-1 text-sm font-semibold text-chili-700; }
+  .card { @apply rounded-2xl border border-rule bg-white p-4; }
+  /* Ledger-book look: red margin rule and faint ruled lines, used on the headline total only. */
+  .khata {
+    @apply rounded-2xl border border-rule bg-white pl-5 pr-4 py-4;
+    border-left: 4px solid #B3261E;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #E3EAD7 31px, #E3EAD7 32px);
+  }
+  .leader { @apply flex items-baseline gap-2; }
+  .leader > .dots { flex: 1; border-bottom: 2px dotted #AEBB9B; transform: translateY(-4px); min-width: 12px; }
+}
